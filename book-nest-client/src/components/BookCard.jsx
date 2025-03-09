@@ -12,11 +12,11 @@ const BookCard = ({book}) => {
     }
     return (
         <div className='flex items-center justify-between md:gap-5 gap-3'>
-            <Link to={`/book-details/${_id}`} className='w-[500px] h-64 overflow-hidden'>
+            <Link to={`/book/${_id}`} className='w-[500px] h-64 overflow-hidden'>
                 <img className='w-full h-full hover:scale-[105%] transition-all duration-300 rounded-sm' src={coverImage} alt="" />
             </Link>
             <div>
-                <Link to={`/book-details/${_id}`}>
+                <Link to={`/book/${_id}`}>
                     <h2 className='text-2xl font-medium hover:text-blue-600'>{title}</h2>
                 </Link>
                 <p className='text-[17px] text-slate-500'>{description.length > 50 && description.slice(0,60)}...</p>

@@ -35,7 +35,7 @@ const News = () => {
                 className="mySwiper mt-7">
                     {
                         news.map((item) =>
-                            <SwiperSlide key={item._id}>
+                            <SwiperSlide key={item.id}>
                                 <div  className='flex flex-col-reverse sm:text-start text-center sm:flex-row items-center gap-2'>
                                     <div>
                                         <Link to={'/'}>

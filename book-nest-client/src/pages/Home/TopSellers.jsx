@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import BookCard from '../../components/BookCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
+import { useAllBooksQuery } from '../../redux/features/books/booksApi';
 
 const TopSellers = () => {
     const [selectCategory, setSelectCategory] = useState("Choose a genre");
-    const [books, setBooks] = useState([]);
-    useEffect( () =>{
-        fetch("books.json")
-        .then(res => res.json())
-        .then(data => setBooks(data))
-    }, [])
+    const {data: books = []} = useAllBooksQuery();
+    // console.log(books);
     const filterBooks = selectCategory === "Choose a genre" ? books : books.filter(book => book.category === selectCategory.toLocaleLowerCase());
     return (
         <div className='px-3 md:px-5'>

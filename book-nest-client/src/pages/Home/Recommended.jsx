@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import BookCard from '../../components/BookCard';
+import { useAllBooksQuery } from '../../redux/features/books/booksApi';
 
 const Recommended = () => {
-    const [books, setBooks] = useState([]);
-    useEffect( () =>{
-        fetch("books.json")
-        .then(res => res.json())
-        .then(data => setBooks(data))
-    }, [])
+    const {data: books = []} = useAllBooksQuery();
     return (
         <div className='px-3 md:px-5'>
             <h1 className='text-2xl font-semibold mb-7'>Recommended for you</h1>
