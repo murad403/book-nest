@@ -1,15 +1,12 @@
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';import { AuthContext } from '../../Providers/AuthProvider';
-;
+import { Link } from 'react-router-dom';
+
 
 const Checkout = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
     const totalPrice = cartItems.reduce((acc, item) => acc + item.newPrice, 0).toFixed(2);
     const { register, handleSubmit} = useForm();
-    const {name} = useContext(AuthContext);
-    console.log(name);
 
     const onSubmit = (data) =>{
         const newOrder = {

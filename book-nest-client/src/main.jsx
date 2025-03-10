@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import AuthProvider from './Providers/AuthProvider.jsx';
 
+
 createRoot(document.getElementById('root')).render(
       <AuthProvider>
       <Provider store={store}>  

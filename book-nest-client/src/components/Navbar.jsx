@@ -5,12 +5,17 @@ import { CiSearch } from "react-icons/ci";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaRegHeart, FaRegUser } from "react-icons/fa";
 import { useSelector } from 'react-redux'
+import { useAuth } from '../Providers/AuthProvider';
+import profile from '../assets/banner/attractive-young-men-black-isolated-white-background_58409-11027.avif';
 
 const Navbar = () => {
     const [openDropdown, setOpenDropdown] = useState(false);
     const cartItems = useSelector(state => state.cart.cartItems);
-    // console.log(cartItems);
-    const user = false;
+    const {user, logout} = useAuth();
+
+    const handleLogout = () =>{
+        logout();
+    }
     return (
         <header className='md:px-[30px] px-5 py-4'>
             <nav className='flex justify-between gap-2 md:gap-0 items-center'>
@@ -26,13 +31,13 @@ const Navbar = () => {
                         {
                             user 
                             ? 
-                            <button className='relative' onClick={() => setOpenDropdown(!openDropdown)}>
-                                <img className='w-9 h-9 border border-blue-600 p-1 rounded-full' src="" alt="user" />
+                            <div className='relative' onClick={() => setOpenDropdown(!openDropdown)}>
+                                <img className='w-9 h-9 cursor-pointer border border-blue-600 p-1 rounded-full' src={profile} alt="user" />
                                 <div className='absolute bg-white px-5 text-[16px] rounded-sm -left-12 py-1'>
                                     {
                                         openDropdown && 
                                         <div>
-                                            <ul>
+                                            <ul className='text-center'>
                                                 {
                                                     navItems.map((item, index) => 
                                                         <li key={index}>
@@ -40,11 +45,14 @@ const Navbar = () => {
                                                         </li>
                                                     )
                                                 }
+                                                <li>
+                                                    <button onClick={handleLogout} className='hover:bg-slate-300 px-3 rounded-sm cursor-pointer'>Logout</button>
+                                                </li>
                                             </ul>
                                         </div>
                                     }
                                 </div>
-                            </button> 
+                            </div> 
                             :
                             <Link to={'/login'}><FaRegUser></FaRegUser></Link>
                         }

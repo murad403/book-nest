@@ -1,19 +1,75 @@
 import React, { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { PiEyeThin, PiEyeSlashThin  } from "react-icons/pi";
+import { useAuth } from '../Providers/AuthProvider';
+import { Bounce, toast } from 'react-toastify';
 
 const Login = () => {
     const date = new Date().getFullYear();
     const [showPassword, setShowPassword] = useState(false);
     const [message, setMessage] = useState("");
     const { register, handleSubmit} = useForm();
-    const onSubmit = (data) =>{
+    const {loginUser, googleLogin} = useAuth();
+    const navigate = useNavigate();
+
+    const onSubmit = async(data) =>{
         const email = data.email;
         const password = data.password;
-        console.log(email, password);
+        try {
+            await loginUser(email, password);
+            toast.success('Login Successful!!!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
+            navigate('/');
+        } catch (error) {
+            setMessage("Please provide a valid Email and Password");
+            console.log(error);
+        }
     }
+    const handleGoogleLogin = () =>{
+            try {
+                googleLogin()
+                .then(res =>{
+                    if(res){
+                        toast.success('Google Login Successful!!!', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: false,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                            });
+                        navigate('/');
+                    }
+                })
+            } catch (error) {
+                toast.error('Failed to Google Login!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+                console.log(error)
+            }
+        }
     return (
         <div className='h-[calc(100vh-120px)] flex items-center justify-center'>
             <div className='w-full md:w-1/4 shadow-md rounded-sm px-8 py-6 space-y-2'>
@@ -40,7 +96,7 @@ const Login = () => {
                     </div>
                 </form>
                 <p className='text-sm'>Haven't an account? please <Link to={'/register'} className='text-blue-600  font-semibold'>Register</Link></p>
-                <button className='flex items-center gap-2 bg-cyan-900 text-white justify-center py-[4px] rounded-sm w-full cursor-pointer text-sm hover:bg-blue-600'><FaGoogle></FaGoogle><span>Sign in with google</span></button>
+                <button onClick={handleGoogleLogin} className='flex items-center gap-2 bg-cyan-900 text-white justify-center py-[4px] rounded-sm w-full cursor-pointer text-sm hover:bg-blue-600'><FaGoogle></FaGoogle><span>Sign in with google</span></button>
                 <p className='text-center text-sm'>&copy;{date} Book Store. All right reserved</p>
             </div>
         </div>
