@@ -1,8 +1,9 @@
 const express = require("express");
 const Book = require("./book.model");
+const verifyAdminToken = require("../middleware/verifyAdminToken");
 const router = express.Router();
 
-router.post('/create-book', async(req, res) =>{
+router.post('/create-book', verifyAdminToken, async(req, res) =>{
     try {
         // console.log("rev", req.body);
         const newBook = await Book({...req.body});
@@ -30,7 +31,7 @@ router.get('/get-book/:id', async(req, res) =>{
         res.status(500).send({message: "Book not found"});
     }
 })
-router.put('/edit/:id', async(req, res) =>{
+router.put('/edit/:id', verifyAdminToken, async(req, res) =>{
     try {
         const bookId = req.params.id;
         const updateBook = req.body;
@@ -40,7 +41,7 @@ router.put('/edit/:id', async(req, res) =>{
         res.status(500).send({message: "Failed to update a books"});
     }
 })
-router.delete('/delete-book/:id', async(req, res) =>{
+router.delete('/delete-book/:id', verifyAdminToken, async(req, res) =>{
     try {
         const bookId = req.params.id;
         const deleteBook = await Book.findByIdAndDelete(bookId);

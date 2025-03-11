@@ -1,18 +1,24 @@
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateOrderMutation } from '../../redux/features/orders/ordersApi';
+import { Bounce, toast } from 'react-toastify';
+import { clearCart } from '../../redux/features/cart/cartSlice';
 
 
 const Checkout = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
     const totalPrice = cartItems.reduce((acc, item) => acc + item.newPrice, 0).toFixed(2);
     const { register, handleSubmit} = useForm();
+    const [createOrder] = useCreateOrderMutation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const onSubmit = (data) =>{
+    const onSubmit = async(data) =>{
         const newOrder = {
             name: data.name,
             email: data.email,
-            phone: data.phone,
+            phone: data.number,
             address: {
                 street: data.address,
                 city: data.city,
@@ -20,10 +26,38 @@ const Checkout = () => {
                 state: data.state,
                 zipcode: data.zipcode
             },
-            productId: cartItems.map(item => item._id),
+            productIds: cartItems.map(item => item._id),
             totalPrice: totalPrice
+        };
+        try {
+            await createOrder(newOrder).unwrap();
+            toast.success('Order created successful!!!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
+            navigate('/orders');
+            dispatch(clearCart());
+        } catch (error) {
+            console.log('Failed to create order', error);
+            toast.error('Failed to create order!!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
         }
-        console.log(newOrder)
     }
     return (
         <div className='bg-slate-200 rounded-sm p-20'>
