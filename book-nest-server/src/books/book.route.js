@@ -44,6 +44,7 @@ router.put('/edit/:id', verifyAdminToken, async(req, res) =>{
 router.delete('/delete-book/:id', verifyAdminToken, async(req, res) =>{
     try {
         const bookId = req.params.id;
+        // console.log(bookId);
         const deleteBook = await Book.findByIdAndDelete(bookId);
         res.status(200).send({message: "deleted successfully", book: deleteBook});
     } catch (error) {

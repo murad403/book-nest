@@ -13,7 +13,7 @@ const DashboardLayout = () => {
         <main className='bg-slate-200 min-h-screen'>
             {/* top section */}
             <section className='flex items-center'>
-                <div className='flex justify-center items-center w-[63px] h-[60px] bg-blue-600 text-white font-semibold'>
+                <div className='flex justify-center items-center min-w-[60px] h-[60px] bg-blue-600 text-white font-semibold'>
                     <Link to={'/'}>Book <br /> Nest</Link>
                 </div>
                 <div className='bg-white h-[60px] w-full flex justify-end'>
@@ -37,9 +37,9 @@ const DashboardLayout = () => {
             <section className='flex'>
                 <div className='min-h-screen'>
                     <ul className='flex flex-col gap-5 bg-gray-800 text-white w-[60px] h-full items-center pt-10 text-xl'>
-                        <li><NavLink to={'edit-book/:id'}><GoFileDirectory></GoFileDirectory></NavLink></li>
+                        <li><NavLink to={'add-book'}><GoFileDirectory></GoFileDirectory></NavLink></li>
                         <li><NavLink to={'/dashboard'}><BsBarChartFill></BsBarChartFill></NavLink></li>
-                        <li><NavLink to={'add-book'}><MdHistory></MdHistory></NavLink></li>
+                        <li><NavLink to={'manage-book/edit-book/:id'}><MdHistory></MdHistory></NavLink></li>
                         <li><NavLink to={'manage-book'}><AiOutlineDotChart></AiOutlineDotChart></NavLink></li>
                     </ul>
                 </div>
