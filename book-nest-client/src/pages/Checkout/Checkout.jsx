@@ -66,12 +66,12 @@ const Checkout = () => {
                 <p className='font-bold'>Total Price: ${totalPrice}</p>
                 <p className='font-bold'>Items: {cartItems.length}</p>
             </div>
-            <div className='bg-white p-7 flex justify-between rounded-sm'>
+            <div className='bg-white md:p-7 gap-5 p-2 flex flex-col md:flex-row md:justify-between rounded-sm'>
                 <div className='text-gray-700'>
                     <h2 className='font-semibold text-xl'>Personal Details</h2>
                     <p>Please fill out all the fields</p>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} className='w-2/3'>
+                <form onSubmit={handleSubmit(onSubmit)} className='md:w-2/3'>
                     <div>
                         <label className='block text-sm font-bold' htmlFor="name">Full Name</label>
                         <input type="text" {...register("name")} className='appearance-none border border-gray-400 px-5 py-1 rounded-sm w-full outline-none bg-slate-100' />

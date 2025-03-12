@@ -9,6 +9,9 @@ import Book from "../components/Book";
 import PrivateRoute from "./PrivateRoute";
 import Orders from "../pages/Dashboard/Orders";
 import DashBoard from "../pages/Dashboard/Dashboard/DashBoard";
+import AdminRoute from "./AdminRoute";
+import AdminLogin from "../components/AdminLogin";
+import DashboardLayout from "../pages/Dashboard/Dashboard/DashboardLayout";
 
 const Router = createBrowserRouter([
     {
@@ -47,25 +50,29 @@ const Router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashBoard></DashBoard>,
+        element: <AdminRoute><DashboardLayout></DashboardLayout></AdminRoute>,
         children: [
             {
                 path: "",
-                element: <div>home</div>
+                element: <AdminRoute><DashBoard></DashBoard></AdminRoute>
             },
             {
                 path: "add-book",
-                element: <div>add book</div>
+                element: <AdminRoute><div>add book</div></AdminRoute>
             },
             {
                 path: "edit-book/:id",
-                element: <div>edit book</div>
+                element: <AdminRoute><div>edit book</div></AdminRoute>
             },
             {
                 path: "manage-book",
-                element: <div>manage book</div>
+                element: <AdminRoute><div>manage book</div></AdminRoute>
             }
         ]
+    },
+    {
+        path: '/admin',
+        element: <AdminLogin></AdminLogin>
     }
 ])
 export default Router;
