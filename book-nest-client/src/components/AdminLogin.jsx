@@ -14,7 +14,7 @@ const AdminLogin = () => {
     const navigate = useNavigate();
 
     const onSubmit = async(data) =>{
-        const response = await axios.post(`http://localhost:5000/api/auth/admin`, data, {
+        const response = await axios.post(`https://book-nest-server-woad.vercel.app/api/auth/admin`, data, {
             headers: {
                 "Content-Type": "application/json"
             }
