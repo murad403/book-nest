@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: "https://book-nest-server-woad.vercel.app/api/books",
+    baseUrl: "http://localhost:5000/api/books",
     credentials: "include",
     prepareHeaders: (headers) =>{
         const token = localStorage.getItem("token");
