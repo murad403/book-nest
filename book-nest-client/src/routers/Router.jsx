@@ -74,7 +74,7 @@ const Router = createBrowserRouter([
         ]
     },
     {
-        path: '/admin',
+        path: 'https://book-nest-client-ten.vercel.app/admin',
         element: <AdminLogin></AdminLogin>
     }
 ])

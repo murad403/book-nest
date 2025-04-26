@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -28,7 +27,7 @@ app.use("/api/admin", adminRoutes);
 
 // Test Route
 app.get('/', (req, res) => {
-    res.send('📚 Book Nest Server is Running Successfully!');
+    res.send('Book Nest Server is Running Successfully!');
 });
 
 
