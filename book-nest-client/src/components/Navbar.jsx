@@ -68,7 +68,6 @@ const Navbar = () => {
     );
 };
 const navItems = [
-    {name: "Dashboard", path: "/dashboard"},
     {name: "Orders", path: "/orders"},
     {name: "Cart", path: "/cart"},
     {name: "Check Out", path: "/checkout"},
