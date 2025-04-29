@@ -33,7 +33,7 @@ const Navbar = () => {
                             ? 
                             <div className='relative' onClick={() => setOpenDropdown(!openDropdown)}>
                                 <img className='w-9 h-9 cursor-pointer border border-blue-600 p-1 rounded-full' src={profile} alt="user" />
-                                <div className='absolute bg-white px-5 text-[16px] rounded-sm -left-12 py-1'>
+                                <div className='absolute bg-white text-[16px] w-[100px] rounded-sm -left-8 py-1'>
                                     {
                                         openDropdown && 
                                         <div>
