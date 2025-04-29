@@ -12,7 +12,7 @@ const DashBoard = () => {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(null);
     useEffect( () =>{
-        axios.get("http://localhost:5000/api/admin", {
+        axios.get("https://book-nest-server-self.vercel.app/api/admin", {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 "Content-Type": "application/json"

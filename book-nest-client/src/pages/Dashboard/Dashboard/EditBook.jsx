@@ -25,7 +25,7 @@ const EditBook = () => {
         const newUpdateBook = {
             ...data
         }
-        axios.put(`http://localhost:5000/api/books/edit/${id}`, newUpdateBook, {
+        axios.put(`https://book-nest-server-self.vercel.app/api/books/edit/${id}`, newUpdateBook, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
