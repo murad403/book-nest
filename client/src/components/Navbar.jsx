@@ -17,16 +17,16 @@ const Navbar = () => {
         logout();
     }
     return (
-        <header className='md:px-[30px] px-5 py-4'>
+        <header className='md:px-[30px] px-5 py-4 bg-gray-400 '>
             <nav className='flex justify-between gap-2 md:gap-0 items-center'>
                 <div className='flex items-center md:gap-7 gap-1'>
-                    <Link to={'/'}><RiMenu2Fill className='text-xl'></RiMenu2Fill></Link>
+                    <Link to={'/'}><RiMenu2Fill className='text-xl text-white'></RiMenu2Fill></Link>
                     <div className='relative'>
                         <input type="text" placeholder='search' className='bg-slate-200 text-black font-medium rounded-sm focus:outline-none pl-8 py-1 w-full' />
-                        <CiSearch className='absolute inset-y-2 left-1 text-[17px]'></CiSearch>
+                        <CiSearch className='absolute inset-y-2 left-1 text-[17px] text-gray-800'></CiSearch>
                     </div>
                 </div>
-                <div className='flex items-center gap-2 text-[16px]'>
+                <div className='flex items-center gap-2 text-[16px] text-white'>
                     <div className='flex items-center'>
                         {
                             user 

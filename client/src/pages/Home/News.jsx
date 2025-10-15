@@ -14,7 +14,7 @@ const News = () => {
         .then(data => setNews(data))
     }, [])
     return (
-        <div className='px-3 md:px-5'>
+        <div className='px-3 md:px-5 text-gray-800'>
             <h1 className='text-2xl font-semibold mb-7'>News</h1>
             <Swiper slidesPerView={1} navigation={true} spaceBetween={10}
                 breakpoints={{
@@ -32,11 +32,11 @@ const News = () => {
                   },
                 }}
                 modules={[Pagination, Navigation]}
-                className="mySwiper mt-7">
+                className="mySwiper mt-5">
                     {
                         news.map((item) =>
                             <SwiperSlide key={item.id}>
-                                <div  className='flex flex-col-reverse sm:text-start text-center sm:flex-row items-center gap-2'>
+                                <div  className='flex flex-col-reverse sm:text-start text-center sm:flex-row items-center gap-2 bg-gray-100 p-3 rounded-md'>
                                     <div>
                                         <Link to={'/'}>
                                             <h2 className='text-lg font-medium text-[#0D0842] hover:text-blue-600'>{item?.title}</h2>

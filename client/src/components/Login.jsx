@@ -72,9 +72,9 @@ const Login = () => {
         }
     return (
         <div className='h-[calc(100vh-120px)] flex items-center justify-center'>
-            <div className='w-full md:w-1/4 shadow-md rounded-sm px-8 py-6 space-y-2'>
-                <h2 className='text-2xl font-medium text-gray-700'>Login Now</h2>
-                <form onSubmit={handleSubmit(onSubmit)}>
+            <div className='w-full md:w-1/4 shadow-md rounded-sm px-8 py-6 space-y-2 bg-white'>
+                <h2 className='text-2xl font-medium text-gray-800'>Login Now</h2>
+                <form className='' onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label className='text-sm block font-bold text-gray-700' htmlFor="email">Email</label>
                         <input className='appearance-none outline-none border border-gray-500 px-3 w-full py-[2px] rounded-sm focus:shadow' type="email" {...register("email", {required: true})} placeholder='Email Address' />

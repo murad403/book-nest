@@ -9,7 +9,7 @@ import { useAllBooksQuery } from '../../redux/features/books/booksApi';
 const Recommended = () => {
     const {data: books = []} = useAllBooksQuery();
     return (
-        <div className='px-3 md:px-5'>
+        <div className='px-3 md:px-5 text-gray-800'>
             <h1 className='text-2xl font-semibold mb-7'>Recommended for you</h1>
             <Swiper slidesPerView={1} navigation={true} spaceBetween={10}
                 breakpoints={{
@@ -27,7 +27,7 @@ const Recommended = () => {
                   },
                 }}
                 modules={[Pagination, Navigation]}
-                className="mySwiper mt-7">
+                className="mySwiper mt-5">
                     {
                         books.length > 0 && books.slice(8, 16).map((book, index) =>
                             <SwiperSlide key={index}>

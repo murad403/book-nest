@@ -5,7 +5,7 @@ import { FaFacebook, FaGoogle, FaInstagramSquare } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className='md:px-[30px] px-5 py-2 text-[#0D0842] bg-slate-200 mt-10'>
+        <footer className='md:px-[30px] px-5 py-2 text-[#0D0842] bg-gray-400 mt-10'>
             <div className='flex flex-col md:flex-row justify-between items-center mb-3'>
                 <div>
                     <div className='flex items-center justify-center'>
@@ -23,7 +23,7 @@ const Footer = () => {
                     <p className='text-[16px]'>Subscribe to stay tuned for new product and latest updates. Let’s do it!</p>
                     <form className='mt-3 flex justify-center'>
                         <input className='border border-amber-300 outline-none px-5 py-1 rounded-tl-sm rounded-bl-sm' type="email" placeholder='Enter your email address'/>
-                        <input className='bg-amber-300 hover:bg-amber-400 py-1 px-2 text-white font-semibold rounded-tr-sm rounded-br-sm' type="submit" value={"Subscribe"} />
+                        <input className='bg-amber-300 hover:bg-amber-400 py-1 px-2 text-white font-semibold rounded-tr-sm rounded-br-sm cursor-pointer' type="submit" value={"Subscribe"} />
                     </form>
                 </div>
             </div>

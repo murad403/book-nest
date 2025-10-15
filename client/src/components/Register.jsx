@@ -72,8 +72,8 @@ const Register = () => {
     }
     return (
         <div className='h-[calc(100vh-120px)] flex items-center justify-center'>
-            <div className='w-full md:w-1/4 shadow-md rounded-sm px-8 py-6 space-y-2'>
-                <h2 className='text-2xl font-medium text-gray-700'>Register Now</h2>
+            <div className='w-full md:w-1/4 shadow-md rounded-sm px-8 py-6 space-y-2 bg-white text-gray-800'>
+                <h2 className='text-2xl font-medium'>Register Now</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label className='text-sm block font-bold text-gray-700' htmlFor="email">Email</label>

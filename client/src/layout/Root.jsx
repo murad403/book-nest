@@ -8,9 +8,9 @@ const Root = () => {
     // ${(location !== '/login' && location !== "/register") && "min-h-screen"} 
     // console.log(location);
     return (
-        <div className='space-y-4'>
+        <div className='space-y-4 bg-whit bg-gray-200'>
             <Navbar></Navbar>
-            <main className={`mx-5 max-w-7xl md:mx-auto rounded-sm`}>
+            <main className={`px-3 md:px-10 lg:px-14 rounded-sm `}>
                 <Outlet></Outlet>
             </main>
             <Footer></Footer>

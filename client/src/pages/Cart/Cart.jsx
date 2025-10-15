@@ -15,7 +15,7 @@ const Cart = () => {
         dispatch(clearCart());
     }
     return (
-        <div className='shadow-xl p-5'>
+        <div className='shadow-xl p-5 text-gray-800'>
             <div className='flex justify-between items-center mb-3'>
                 <h2 className='text-2xl font-medium text-gray-700'>Shopping Cart</h2>
                 <button onClick={handleClearCart} className='bg-red-500 hover:bg-red-600 text-white rounded-sm px-2 font-semibold cursor-pointer'>Clear Cart</button>
