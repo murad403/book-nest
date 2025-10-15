@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const ordersApi = createApi({
   reducerPath: "ordersApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://book-nest-server-self.vercel.app/api/orders`,
+    baseUrl: `https://book-nest-server-sepia.vercel.app/api/orders`,
     credentials: "include",
   }),
   tagTypes: ["orders"],
